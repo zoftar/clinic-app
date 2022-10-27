@@ -1,0 +1,12 @@
+version: "3"
+services:
+  postgres-db:
+    image: postgres:15.0
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: clinic
+      POSTGRES_USER: postgresuser
+      POSTGRES_PASSWORD: postgrespassword
+    volumes:
+      - ../storage/clinic:/var/lib/postgresql/data/
