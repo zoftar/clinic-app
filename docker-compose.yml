@@ -6,7 +6,7 @@ services:
       - "5433:5432"
     environment:
       POSTGRES_DB: clinic
-      POSTGRES_USER: postgresuser
-      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
     volumes:
       - ../storage/clinic:/var/lib/postgresql/data/
