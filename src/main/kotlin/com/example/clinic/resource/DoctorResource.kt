@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RestController
 class DoctorResource(val doctorService: DoctorService) {
 
     @GetMapping("/{id}")
-    fun getDoctor(@PathVariable id: Long) : Doctor = doctorService.getDoctor(id)
+    fun getDoctor(@PathVariable id: Long): Doctor = doctorService.getDoctor(id)
 
     @PostMapping
-    fun createDoctor(@RequestBody doctor: Doctor) : Doctor = doctorService.createDoctor(doctor)
+    fun createDoctor(@RequestBody doctor: Doctor): Doctor = doctorService.createDoctor(doctor)
 
     @PutMapping("/{id}")
-    fun updateDoctor(@PathVariable id : Long, @RequestBody doctor: Doctor) = doctorService.updateDoctor(id, doctor)
+    fun updateDoctor(@PathVariable id: Long, @RequestBody doctor: Doctor) = doctorService.updateDoctor(id, doctor)
 
     @DeleteMapping("/{id}")
     fun deleteDoctor(@PathVariable id: Long) = doctorService.deleteDoctor(id)

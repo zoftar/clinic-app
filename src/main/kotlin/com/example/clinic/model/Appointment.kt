@@ -15,4 +15,4 @@ class Appointment(
         @ManyToOne
         val patient: Patient,
         @Id @GeneratedValue val id: Long? = null
-        )
+)

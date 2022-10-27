@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import java.util.*
 
 @RequestMapping("api/v1/patients")
 @RestController
@@ -20,7 +19,7 @@ class PatientResource(val patientService: PatientService) {
     fun getPatients() = patientService.getPatients()
 
     @GetMapping("/{id}")
-    fun getPatient(@PathVariable id: Long) : Patient {
+    fun getPatient(@PathVariable id: Long): Patient {
         return patientService.getPatient(id)
     }
 

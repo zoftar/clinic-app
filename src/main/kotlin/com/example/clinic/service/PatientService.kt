@@ -10,25 +10,25 @@ import org.springframework.web.server.ResponseStatusException
 class PatientService(val repository: PatientRepository) {
     fun getPatients(): Collection<Patient> = repository.findAll()
 
-    fun getPatient(id: Long) : Patient {
+    fun getPatient(id: Long): Patient {
         val patient = repository.findById(id)
         if (patient.isEmpty) {
-                 throw ResponseStatusException(
-                         HttpStatus.NOT_FOUND, String.format("Patient with id %d does not exist", id))
-             }
-        return patient.get()
+            throw ResponseStatusException(
+                    HttpStatus.NOT_FOUND, String.format("Patient with id %d does not exist", id))
         }
+        return patient.get()
+    }
 
     fun createPatient(patient: Patient): Patient = repository.save(patient)
 
     fun updatePatient(id: Long, patient: Patient): Patient {
         val existingPatient = repository.findById(id)
         if (!existingPatient.isPresent) {
-            throw ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Patient with id %d does not exist", id));
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Patient with id %d does not exist", id))
         }
-        return repository.save(patient);
+        return repository.save(patient)
     }
 
-    fun deletePatient(id: Long) = repository.deleteById(id);
+    fun deletePatient(id: Long) = repository.deleteById(id)
 
 }

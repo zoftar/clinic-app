@@ -15,14 +15,14 @@ class AppointmentService(val repository: AppointmentRepository, val doctorServic
      * Returns all appointments.
      * @return list of appointments
      */
-    fun getAppointments() = repository.findAll();
+    fun getAppointments() = repository.findAll()
 
     /**
      * Returns all appointments registered for a patient
      * @param patientId id of the patient
      * @return list of appointments registered for the given patient
      */
-    fun getAppointmentsByPatient(patientId: Long) = repository.findAllByPatientId(patientId);
+    fun getAppointmentsByPatient(patientId: Long) = repository.findAllByPatientId(patientId)
 
     /**
      * Creates an appointment
@@ -42,7 +42,7 @@ class AppointmentService(val repository: AppointmentRepository, val doctorServic
      * @return the updated appointment
      */
     fun updateAppointment(id: Long, updateDto: AppointmentUpdateDto): Appointment {
-        val existingAppointment = repository.findById(id);
+        val existingAppointment = repository.findById(id)
         if (!existingAppointment.isPresent) {
             throw ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Appointment with id %d does not exist", id))
         }

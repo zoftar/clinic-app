@@ -6,14 +6,15 @@ import com.example.clinic.model.Appointment
 import com.example.clinic.model.Doctor
 import com.example.clinic.model.Patient
 import com.example.clinic.repository.AppointmentRepository
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.mock
 import org.mockito.kotlin.any
 import org.mockito.kotlin.eq
 import org.mockito.kotlin.whenever
 import java.time.LocalDateTime
-import java.util.*
+import java.util.Optional
 
 class AppointmentServiceTest {
 

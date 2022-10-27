@@ -5,9 +5,9 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-class Doctor (
+class Doctor(
         val firstName: String,
         val lastName: String,
         val specialization: String,
         @Id @GeneratedValue val id: Long? = null
-        )
+)

@@ -9,20 +9,20 @@ import org.springframework.web.server.ResponseStatusException
 @Service
 class DoctorService(val repository: DoctorRepository) {
 
-    fun getDoctor(id: Long) : Doctor {
-        val doctor = repository.findById(id);
+    fun getDoctor(id: Long): Doctor {
+        val doctor = repository.findById(id)
         if (doctor.isPresent) {
-            return doctor.get();
+            return doctor.get()
         }
-        throw ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Doctor with id %d does not exist", id));
+        throw ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Doctor with id %d does not exist", id))
     }
 
-    fun createDoctor(doctor: Doctor) : Doctor = repository.save(doctor);
+    fun createDoctor(doctor: Doctor): Doctor = repository.save(doctor)
 
-    fun updateDoctor(id : Long, doctor: Doctor): Doctor {
-        val existingDoctor = repository.findById(id);
+    fun updateDoctor(id: Long, doctor: Doctor): Doctor {
+        val existingDoctor = repository.findById(id)
         if (!existingDoctor.isPresent) {
-            throw ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Doctor with id %d does not exist", id));
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Doctor with id %d does not exist", id))
         }
         return repository.save(doctor)
     }
